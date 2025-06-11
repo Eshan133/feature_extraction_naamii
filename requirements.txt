@@ -1,6 +1,9 @@
 ipykernel
 nibabel
 numpy
+torch
+torchvision
+scikit-learn
 matplotlib
 seaborn
 pandas

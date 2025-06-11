@@ -9,7 +9,7 @@ def load_and_segment_ct(ct_path, mask_path):
         # Load CT scan and mask
         ct_img = nib.load(ct_path).get_fdata()
         mask_img = nib.load(mask_path).get_fdata()
-        
+
         # Account for swapped labels: tibia = 2, femur = 1
         tibia_mask = (mask_img == 2).astype(np.float32)  # Tibia (value=2)
         femur_mask = (mask_img == 1).astype(np.float32)  # Femur (value=1)
@@ -26,5 +26,5 @@ def load_and_segment_ct(ct_path, mask_path):
         logging.info("Error during Data Ingestion")
         raise CustomException(e, sys)
     
-if __name__ == "__main__":
-    tibia_region, femur_region, background_region = load_and_segment_ct('../../data/','../../data/')
+# if __name__ == "__main__":
+#     tibia_region, femur_region, background_region = load_and_segment_ct('../../data/','../../data/')

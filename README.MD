@@ -83,11 +83,13 @@ This pipeline processes CT volumes to extract features from tibia, femur, and ba
 
 - **Cosine Similarities**:
   - `output/cosine_similarities.csv`:
+  ```python
 | Pair              | denselayer15.conv2 | denselayer16.conv1 | denselayer16.conv2 |
 |-------------------|--------------------|--------------------|--------------------|
 | Tibia--Femur      | 0.9828             | 0.9957             | 0.8788             |
 | Tibia--Background | 0.6987             | 0.9331             | 0.3264             |
 | Femur--Background | 0.6991             | 0.9308             | 0.4149             |
+  ```
 
 - **Visualization**:
   - `output/region_slices.png`: Tibia, femur, background slices.

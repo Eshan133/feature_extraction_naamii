@@ -107,20 +107,20 @@ def feature_comparison(tibia_volume, femur_volume, background_volume, model, dev
         logging.error(f"Error in Task 4 & 5: {str(e)}")
         raise CustomException(e, sys)
 
-if __name__ == "__main__":
-    model, device = initialize_model()
-    ct_path = "data/3702_left_knee.nii.gz"
-    mask_path = "data/original_mask.nii.gz"
-    ct_data = nib.load(ct_path).get_fdata()
-    mask_data = nib.load(mask_path).get_fdata()
+# if __name__ == "__main__":
+#     model, device = initialize_model()
+#     ct_path = "data/3702_left_knee.nii.gz"
+#     mask_path = "data/original_mask.nii.gz"
+#     ct_data = nib.load(ct_path).get_fdata()
+#     mask_data = nib.load(mask_path).get_fdata()
 
-    # Extract volumes for each region
-    tibia_volume = (mask_data == 2).astype(np.float32)  # Tibia mask value = 2
-    femur_volume = (mask_data == 1).astype(np.float32)  # Femur mask value = 1
-    background_volume = (mask_data == 0).astype(np.float32)  # Background mask value = 0
+#     # Extract volumes for each region
+#     tibia_volume = (mask_data == 2).astype(np.float32)  # Tibia mask value = 2
+#     femur_volume = (mask_data == 1).astype(np.float32)  # Femur mask value = 1
+#     background_volume = (mask_data == 0).astype(np.float32)  # Background mask value = 0
 
-    similarities = feature_comparison(tibia_volume, femur_volume, background_volume, model, device)
-    for pair_name, layer_sims in similarities.items():
-        print(f"Similarities for {pair_name}:")
-        for layer_name, sim in layer_sims.items():
-            print(f"  {layer_name}: {sim}")
+#     similarities = feature_comparison(tibia_volume, femur_volume, background_volume, model, device)
+#     for pair_name, layer_sims in similarities.items():
+#         print(f"Similarities for {pair_name}:")
+#         for layer_name, sim in layer_sims.items():
+#             print(f"  {layer_name}: {sim}")

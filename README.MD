@@ -7,7 +7,7 @@ This pipeline processes CT volumes to extract features from tibia, femur, and ba
 
 - **Feature Extraction**: Extracts features from `denseblock3` layers of 3D DenseNet121 for tibia (mask=2), femur (mask=1), and background (mask=0).
 - **Cosine Similarity**: Computes similarities for Tibia ↔ Femur, Tibia ↔ Background, and Femur ↔ Background.
-- **CSV Output**: Saves similarities with rows for region pairs and columns for layers (`denselayer24.conv2`, `denselayer24.conv1`, `denselayer23.conv2`).
+- **CSV Output**: Saves similarities with rows for region pairs and columns for layers (`denselayer16.conv2`, `denselayer16.conv1`, `denselayer15.conv2`).
 
 ## Prerequisites
 
@@ -83,12 +83,11 @@ This pipeline processes CT volumes to extract features from tibia, femur, and ba
 
 - **Cosine Similarities**:
   - `output/cosine_similarities.csv`:
-    ```
-    Pair,denselayer24.conv2,denselayer24.conv1,denselayer23.conv2
-    Tibia-Femur,<value>,<value>,<value>
-    Tibia-Background,<value>,<value>,<value>
-    Femur-Background,<value>,<value>,<value>
-    ```
+| Pair              | denselayer15.conv2 | denselayer16.conv1 | denselayer16.conv2 |
+|-------------------|--------------------|--------------------|--------------------|
+| Tibia--Femur      | 0.9828             | 0.9957             | 0.8788             |
+| Tibia--Background | 0.6987             | 0.9331             | 0.3264             |
+| Femur--Background | 0.6991             | 0.9308             | 0.4149             |
 
 - **Visualization**:
   - `output/region_slices.png`: Tibia, femur, background slices.

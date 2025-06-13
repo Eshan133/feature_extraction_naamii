@@ -9,8 +9,10 @@ import sys
 def inflate_densenet121_to_3d():
 
     try:
+        
         # Loading pre-trained model
         model_2d = models.densenet121(pretrained=True)
+        print(model_2d.features)
         model_2d.eval()
 
         #Defining the 3D model class

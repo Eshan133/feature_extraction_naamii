@@ -5,8 +5,8 @@ import pandas as pd
 from src.exception import CustomException
 from src.logger import logging
 import sys
-from extract_features import extract_features
-from initialize_densenet121_3d import initialize_model
+from src.components.extract_features import extract_features
+from src.components.initialize_densenet121_3d import initialize_model
 import nibabel as nib
 
 def compute_cosine_similarity(feature1, feature2):
